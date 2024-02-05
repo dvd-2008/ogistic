@@ -6,9 +6,9 @@ ini_set('error_reporting', E_ALL);
 
 
 // Incluye la biblioteca de PHPMailer
-require 'C:/Users/HP/Desktop/plantillas3\ogistic/vendor/phpmailer/phpmailer/src/Exception.php';
-require 'C:/Users/HP/Desktop/plantillas3\ogistic/vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'C:/Users/HP/Desktop/plantillas3\ogistic/vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 
 // Configuración de PHPMailer
 $mail = new PHPMailer(true);
