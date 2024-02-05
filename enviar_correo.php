@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp.zoho.com';
+        $mail->Host = 'smtppro.zoho.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'davidhuaman@davidh.tech';
         $mail->Password = 'Geyda.20';
