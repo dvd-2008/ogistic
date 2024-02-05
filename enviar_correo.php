@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth = true;
         $mail->Username = 'davidhuaman@davidh.tech';
         $mail->Password = 'Geyda.20';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
 
         $mail->setFrom($email, $name);
         $mail->addAddress($destinatario);
