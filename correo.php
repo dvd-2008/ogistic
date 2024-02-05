@@ -1,6 +1,9 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+ini_set('display_errors', 1);
+ini_set('error_reporting', E_ALL);
+
 
 // Incluye la biblioteca de PHPMailer
 require 'ruta/donde/guardaste/PHPMailer/src/Exception.php';
