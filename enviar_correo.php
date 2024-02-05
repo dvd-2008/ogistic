@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["Name"];
@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST["Phone_Number"];
     $message = $_POST["Message"];
 
-    $destinatario = 'davidhuaman@davidh.tech'; // Reemplaza con tu dirección de correo destino
+    require 'vendor/autoload.php';
+
 
     $mail = new PHPMailer(true);
     try {
@@ -21,18 +22,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Password = 'Geyda.20';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
+    } catch (Exception $e) {
+        echo 'Error al configurar SMTP: ' . $e->getMessage();
+        exit;
+      }
 
-        $mail->setFrom($email, $name);
-        $mail->addAddress($destinatario);
+        $mail->setFrom([$email => $name]);
+
+        $mail->addAddress('davidhuaman@davidh.tech');
 
         $mail->isHTML(true);
         $mail->Subject = 'Nuevo mensaje de contacto';
-        $mail->Body = "Nombre: $name <br>Email: $email <br>Teléfono: $phone_number <br>Mensaje: $message";
+        $mail->Body = $message ;
 
-        $mail->send();
-        echo 'El correo fue enviado correctamente.';
-    } catch (Exception $e) {
-        echo "Error al enviar el correo: {$mail->ErrorInfo}";
-    }
-}
+
+        try {
+            $mail->send();
+            header('Location: https://davidh.tech/ogistic');
+            exit;
+          } catch (Exception $e) {
+            echo 'Error al enviar el correo: ' . $e->getMessage();
+          }
+        } else {
+          // Si alguien intenta acceder directamente a este script, redirigir al formulario
+          header('Location:https://davidh.tech/ogistic');
+          exit;
+        }
 ?>
