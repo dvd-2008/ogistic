@@ -6,9 +6,10 @@ ini_set('error_reporting', E_ALL);
 
 
 // Incluye la biblioteca de PHPMailer
-require '../vendor/phpmailer/phpmailer/src/Exception.php';
-require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
+
 
 // Configuración de PHPMailer
 $mail = new PHPMailer(true);
