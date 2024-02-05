@@ -22,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Password = 'Geyda.20';
         $mail->SMTPSecure = 'ssl';
         $mail->Port = 465;
-    } catch (Exception $e) {
-        echo 'Error al configurar SMTP: ' . $e->getMessage();
-        exit;
+    }catch (Exception $e) {
+        echo 'Error al enviar el correo: ' . $e->getMessage();
+        die(); 
       }
 
         $mail->setFrom([$email => $name]);
